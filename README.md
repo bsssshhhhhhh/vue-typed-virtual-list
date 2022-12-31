@@ -38,7 +38,7 @@ import { defineComponent } from 'vue';
 import { createVirtualScroller } from 'vue-typed-virtual-list';
 
 type User = {
-  id: string;
+  id: number;
   name: string;
   phone: string;
 };
@@ -70,7 +70,7 @@ import { createVirtualScroller } from 'vue-typed-virtual-list';
 const VirtualScroller = createVirtualScroller<User>();
 
 type User = {
-  id: string;
+  id: number;
   name: string;
   phone: string;
 };
