@@ -24,8 +24,9 @@ Example:
       :default-height="40"
       :items="someArrayOfUsers"
     >
-      <template #item="{ ref }">
-          <!-- thanks to Volar, `ref` has the type `User` here -->
+      <template #item="{ ref, offset, index }">
+          <!-- `ref` is the array item. Thanks to Volar, `ref` has the type `User` here -->
+
           {{ ref.name }}
       </template>
     </VirtualScroller>
