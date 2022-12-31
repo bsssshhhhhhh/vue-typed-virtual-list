@@ -25,9 +25,9 @@ Example:
       :items="someArrayOfUsers"
     >
       <template #item="{ ref, offset, index }">
-          <!-- `ref` is the array item. Thanks to Volar, `ref` has the type `User` here -->
+        <!-- `ref` is the array item. Thanks to Volar, `ref` has the type `User` here -->
 
-          {{ ref.name }}
+        {{ ref.name }}
       </template>
     </VirtualScroller>
   </div>
