@@ -47,7 +47,16 @@ export default defineComponent({
   components: {
     // pass the item type as a type parameter to enable type safety in the item slot
     VirtualScroller: createVirtualScroller<User>()
-  }
+  },
+  data: () => ({
+    someArrayOfUsers: Array
+      .from(Array(100))
+      .map((_, i) => ({
+        id: i + 1,
+        name: 'Name',
+        phone: 'Phone'
+      }))
+  })
 })
 </script>
 ```
@@ -65,6 +74,14 @@ type User = {
   name: string;
   phone: string;
 };
+
+const someArrayOfUsers: User[] = Array
+  .from(Array(100))
+  .map((_, i) => ({
+    id: i + 1,
+    name: 'Name',
+    phone: 'Phone'
+  }));
 
 </script>
 ```
