@@ -21,7 +21,7 @@ Example:
 <template>
   <div>
     <VirtualScroller
-      :default-height="40"
+      :default-size="40"
       :items="someArrayOfUsers"
     >
       <template #item="{ ref, offset, index }">
@@ -71,7 +71,7 @@ type User = {
 
 ### Props
 
-- `defaultHeight` - Placeholder size to use in calculations before an item's actual height has been measured
+- `defaultSize` - Placeholder size to use in calculations before an item's actual height has been measured
 - `items` - Array of items to render
 
 ### Emits
