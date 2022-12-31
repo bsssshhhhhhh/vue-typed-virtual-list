@@ -45,6 +45,8 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
     offsets.value = sums;
   }, OFFSET_DEBOUNCE_INTERVAL);
 
+  const getOffset = (index: number) => offsets.value[index];
+
   updateOffsets();
   updateOffsets.flush();
 
@@ -96,6 +98,7 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
   });
 
   return {
+    getOffset,
     measure,
     visibleItems,
     totalSize
