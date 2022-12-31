@@ -33,16 +33,12 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
   const offsets = ref<Record<number | 'length', number>>({ length: 0 });
   const updateOffsets = debounce(() => {
     const items = getItems();
-    const sums: Record<number | 'length', number> = {
-      length: items.length
-    };
+    offsets.value.length = items.length;
 
-    sums[0] = 0;
+    offsets.value[0] = 0;
     for (let i = 1; i < items.length; i++) {
-      sums[i] = sums[i - 1]! + (measuredSizes[i - 1] ?? getAssumedSize());
+      offsets.value[i] = offsets.value[i - 1]! + (measuredSizes[i - 1] ?? getAssumedSize());
     }
-
-    offsets.value = sums;
   }, OFFSET_DEBOUNCE_INTERVAL);
 
   const getOffset = (index: number) => offsets.value[index];
