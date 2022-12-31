@@ -4,53 +4,52 @@ import { ItemContext } from './types';
 import { useElementSize, useResizeObserver } from '@vueuse/core';
 import { useScrollDirection } from './scroll-direction';
 
-export function createVirtualScroller<T>() {
-
-  const ScrollerItem = defineComponent({
-    emits: ['sizeUpdated'],
-    props: {
-      offset: {
-        required: true,
-        type: Number
-      },
-
-      index: {
-        required: true,
-        type: Number
-      }
+const ScrollerItem = defineComponent({
+  emits: ['sizeUpdated'],
+  props: {
+    offset: {
+      required: true,
+      type: Number
     },
-    setup(props, { emit, slots }) {
-      const el = ref<HTMLElement | null>(null);
 
-      const listItemStyles = computed((): CSSProperties => ({
-        position: 'absolute',
-        transform: `translateY(${props.offset}px)`,
-        top: 0,
-        left: 0,
-        right: 0
-      }));
-
-      useResizeObserver(el, ([entry]) => {
-        requestAnimationFrame(() => {
-          if (!entry) {
-            return;
-          }
-          const { height } = entry.contentRect;
-          emit('sizeUpdated', height);
-        });
-      });
-
-      return () => (
-        <div
-          ref={el}
-          style={listItemStyles.value}
-          aria-rowindex={props.index + 1}>
-          { slots.default?.() }
-        </div>
-      );
+    index: {
+      required: true,
+      type: Number
     }
-  });
+  },
+  setup(props, { emit, slots }) {
+    const el = ref<HTMLElement | null>(null);
 
+    const listItemStyles = computed((): CSSProperties => ({
+      position: 'absolute',
+      transform: `translateY(${props.offset}px)`,
+      top: 0,
+      left: 0,
+      right: 0
+    }));
+
+    useResizeObserver(el, ([entry]) => {
+      requestAnimationFrame(() => {
+        if (!entry) {
+          return;
+        }
+        const { height } = entry.contentRect;
+        emit('sizeUpdated', height);
+      });
+    });
+
+    return () => (
+      <div
+        ref={el}
+        style={listItemStyles.value}
+        aria-rowindex={props.index + 1}>
+        { slots.default?.() }
+      </div>
+    );
+  }
+});
+
+export function createVirtualScroller<T>() {
   const VirtualScroller = defineComponent({
     props: {
       items: {
