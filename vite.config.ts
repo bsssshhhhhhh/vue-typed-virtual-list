@@ -7,10 +7,9 @@ import dts from 'vite-plugin-dts';
 export default defineConfig({
   build: {
     lib: {
-      fileName: 'vue-big-list',
+      fileName: 'vue-typed-virtual-list',
       entry: './src/main.ts',
       formats: ['es'],
-      name: 'VueBigList'
     },
 
     rollupOptions: {
