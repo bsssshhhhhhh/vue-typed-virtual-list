@@ -1,53 +1,11 @@
 import { useDynamicSizeScroller } from './dynamic-scroller';
 import { defineComponent, ref, PropType, VNode, toRefs, computed, CSSProperties } from 'vue';
 import { ItemContext } from './types';
-import { useElementSize, useResizeObserver } from '@vueuse/core';
+import { useElementSize } from '@vueuse/core';
 import { useScrollDirection } from './scroll-direction';
+import { VirtualScrollerItem } from './VirtualScrollerItem';
 
-const ScrollerItem = defineComponent({
-  emits: ['sizeUpdated'],
-  props: {
-    offset: {
-      required: true,
-      type: Number
-    },
 
-    index: {
-      required: true,
-      type: Number
-    }
-  },
-  setup(props, { emit, slots }) {
-    const el = ref<HTMLElement | null>(null);
-
-    const listItemStyles = computed((): CSSProperties => ({
-      position: 'absolute',
-      transform: `translateY(${props.offset}px)`,
-      top: 0,
-      left: 0,
-      right: 0
-    }));
-
-    useResizeObserver(el, ([entry]) => {
-      requestAnimationFrame(() => {
-        if (!entry) {
-          return;
-        }
-        const { height } = entry.contentRect;
-        emit('sizeUpdated', height);
-      });
-    });
-
-    return () => (
-      <div
-        ref={el}
-        style={listItemStyles.value}
-        aria-rowindex={props.index + 1}>
-        { slots.default?.() }
-      </div>
-    );
-  }
-});
 
 export function createVirtualScroller<T>() {
   const VirtualScroller = defineComponent({
@@ -118,14 +76,14 @@ export function createVirtualScroller<T>() {
 
           {
             scroller.visibleItems.value.map((item) =>
-              <ScrollerItem
+              <VirtualScrollerItem
                 key={item.index}
                 onSizeUpdated={(height: number) => scroller.measure(item.index, height)}
                 offset={item.offset}
                 index={item.index}
               >
                 { slots.item?.(item) }
-              </ScrollerItem>
+              </VirtualScrollerItem>
             )
           }
         </div>
