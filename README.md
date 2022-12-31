@@ -90,6 +90,7 @@ const someArrayOfUsers: User[] = Array
 
 - `defaultSize` - Placeholder size to use in calculations before an item's actual height has been measured
 - `items` - Array of items to render
+- `padding` - Number of items beyond what is visible in the overflow viewport to render. *(Default: 10)*
 
 ### Emits
 
