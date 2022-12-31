@@ -12,6 +12,9 @@
         </div>
       </template>
     </VirtualList>
+
+
+    <a href="https://github.com/bsssshhhhhhh/vue-typed-virtual-list/blob/gh-pages-src/src/App.vue">Source</a>
   </div>
 </template>
 
