@@ -1,0 +1,50 @@
+{
+  "name": "vue-typed-virtual-list",
+  "version": "1.0.0",
+  "description": "A small, efficient, easy-to-use virtual list for Vue 3",
+  "author": {
+    "name": "Brian Simon",
+    "email": "oss@brianesimon.com",
+    "url": "https://github.com/bsssshhhhhhh"
+  },
+  "keywords": [
+    "vue",
+    "virtual-list"
+  ],
+  "license": "Apache-2.0",
+  "repository": "https://github.com/bsssshhhhhhh/vue-typed-virtual-list",
+  "scripts": {
+    "build": "tsc && vite build",
+    "lint": "eslint src",
+    "dev": "cypress open --component --browser chrome"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
+    "@vue/test-utils": "^2.2.6",
+    "cypress": "^12.2.0",
+    "eslint": "^8.30.0",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3",
+    "vite-plugin-dts": "^1.7.1",
+    "vitest": "^0.26.2",
+    "vue": "^3.2.45"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.9.0",
+    "lodash": "^4.17.21"
+  },
+  "type": "module",
+  "module": "dist/vue-typed-virtual-list.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "README.md",
+    "dist"
+  ]
+}
