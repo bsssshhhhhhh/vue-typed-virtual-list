@@ -10,7 +10,7 @@ Features:
 - Automatically and transparently deals with variable element heights
 - Small footprint. <2KB gzipped
 
-## [Demo](https://bsssshhhhhhh.github.io/vue-typed-virtual-list/)
+[Live Demo](https://bsssshhhhhhh.github.io/vue-typed-virtual-list/) **&middot;** [Try it on CodeSandbox](https://codesandbox.io/s/vue-typed-virtual-list-w26j1l?file=/src/App.vue)
 
 
 ## Usage
