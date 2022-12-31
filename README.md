@@ -8,7 +8,7 @@ Features:
 - Extremely efficient calculations
 - Provides generic type safety inside the `#item` slot
 - Automatically and transparently deals with variable element heights
-- Small footprint. 1.71KB gzipped
+- Small footprint. <2KB gzipped
 
 ## Usage
 
