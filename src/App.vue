@@ -5,11 +5,11 @@
       :default-size="84"
       :items="arr">
       <template #item="{ index, offset, ref }">
-        <ExpandableThing>
-          Item # {{ ref?.id }}
-          <hr v-if="index % 3 === 0">
-          <div v-if="index % 10 === 0" style="height: 30px; width: 30px; background: red" />
-        </ExpandableThing>
+        <div class="list-item">
+          <div><strong>User ID:</strong> {{ ref?.id }}</div>
+          <div><strong>Name:</strong> {{ ref?.name }}</div>
+          <div><strong>Notes:</strong> {{ ref?.notes }}</div>
+        </div>
       </template>
     </VirtualList>
   </div>
@@ -17,24 +17,41 @@
 
 <script lang="ts" setup>
 import { createVirtualScroller } from 'vue-typed-virtual-list';
-import ExpandableThing from './ExpandableThing.vue';
-const VirtualList = createVirtualScroller<TestItem>();
+import { faker } from '@faker-js/faker';
 
-type TestItem = {
+const VirtualList = createVirtualScroller<User>();
+
+type User = {
   id: number;
+  name: string;
+  notes: string;
 }
 
-const arr: TestItem[] = Array
+const lorem = faker.lorem.lines(10).split('\n');
+
+const arr: User[] = Array
   .from(Array(100000))
   .map((_, i) => ({
-    id: i + 1
+    id: i + 1,
+    name: faker.name.fullName(),
+    notes: lorem.slice(0, Math.ceil(Math.random() * 10)).join('\n')
   }));
 
 </script>
 
 <style>
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 .list-wrapper {
   height: 800px;
   width: 600px;
+}
+
+.list-item {
+  margin: 0.5rem 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid grey;
 }
 </style>
