@@ -50,6 +50,7 @@ const arr: User[] = Array
 .list-wrapper {
   height: 800px;
   width: 600px;
+  max-width: 100%;
 }
 
 .list-item {
