@@ -26,13 +26,11 @@ export const VirtualScrollerItem = defineComponent({
     }));
 
     useResizeObserver(el, ([entry]) => {
-      requestAnimationFrame(() => {
-        if (!entry) {
-          return;
-        }
-        const { height } = entry.contentRect;
-        emit('sizeUpdated', height);
-      });
+      if (!entry) {
+        return;
+      }
+      const { height } = entry.contentRect;
+      emit('sizeUpdated', height);
     });
 
     return () => (

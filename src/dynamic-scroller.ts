@@ -1,4 +1,4 @@
-import { computed, reactive, ref, Ref, isRef, watch } from 'vue';
+import { computed, reactive, ref, Ref, isRef, watch, nextTick } from 'vue';
 import { MaybeRef } from '@vueuse/core';
 import { ItemContext, ScrollerArray } from './types';
 import { binaryClosest } from './utils';
