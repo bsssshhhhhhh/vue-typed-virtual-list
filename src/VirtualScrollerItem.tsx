@@ -19,8 +19,7 @@ export const VirtualScrollerItem = defineComponent({
 
     const listItemStyles = computed((): CSSProperties => ({
       position: 'absolute',
-      transform: `translateY(${props.offset}px)`,
-      top: 0,
+      top: `${props.offset}px`,
       left: 0,
       right: 0
     }));
