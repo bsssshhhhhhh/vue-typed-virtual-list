@@ -71,7 +71,7 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
       lastStart = start;
       lastEnd = end;
 
-      args.onItemsChanged?.({ start, end });
+      nextTick(() => args.onItemsChanged?.({ start, end }));
     }
 
     return getItems()
