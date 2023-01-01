@@ -2,7 +2,7 @@
 <template>
   <div class="list-wrapper">
     <VirtualList
-      :default-size="84"
+      :default-size="196"
       :items="arr">
       <template #item="{ index, offset, ref }">
         <div class="list-item">
