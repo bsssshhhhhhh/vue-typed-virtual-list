@@ -14,5 +14,3 @@ mv dist/* .
 git add .
 git commit -m "deploy"
 git push
-
-git checkout gh-pages-src
