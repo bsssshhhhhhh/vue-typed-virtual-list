@@ -33,7 +33,7 @@ type User = {
 const lorem = faker.lorem.lines(10).split('\n');
 
 const arr: User[] = Array
-  .from(Array(100000))
+  .from(Array(70000))
   .map((_, i) => ({
     id: i + 1,
     name: faker.name.fullName(),
