@@ -99,6 +99,7 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
   });
 
   return {
+    offsets,
     getOffset,
     measure,
     visibleItems,

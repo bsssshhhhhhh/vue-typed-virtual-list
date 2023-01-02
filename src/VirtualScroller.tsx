@@ -1,7 +1,7 @@
 import {
-  defineComponent, ref, PropType, VNode, toRefs, computed, CSSProperties,
+  defineComponent, ref, PropType, VNode, toRefs, computed, CSSProperties, nextTick,
 } from 'vue';
-import { useElementSize } from '@vueuse/core';
+import { useElementSize, watchOnce } from '@vueuse/core';
 import { useDynamicSizeScroller } from './dynamic-scroller';
 import { ItemContext } from './types';
 import { useScrollDirection } from './scroll-direction';
@@ -70,6 +70,10 @@ export function createVirtualScroller<T>() {
         }
 
         container.value.scrollTop = position;
+
+        watchOnce(scroller.offsets, () => {
+          nextTick(() => { container.value!.scrollTop = scroller.getOffset(index)!; });
+        });
       };
 
       expose({
