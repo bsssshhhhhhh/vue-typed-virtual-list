@@ -102,7 +102,7 @@ If you're not using TypeScript, just omit the type parameter from the above exam
 
 ### Exposed Instance Methods
 
--  `scrollTo(index: number): void` - scrolls an index into view
+-  `scrollTo(index: number): void` - scrolls an index into view ([Example](https://github.com/bsssshhhhhhh/vue-typed-virtual-list/blob/gh-pages-src/src/App.vue#L71-L78))
 
 
 
