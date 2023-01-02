@@ -489,10 +489,10 @@ vue-tsc@^1.0.11:
     "@volar/vue-language-core" "1.0.19"
     "@volar/vue-typescript" "1.0.19"
 
-vue-typed-virtual-list@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/vue-typed-virtual-list/-/vue-typed-virtual-list-1.0.8.tgz#f4270c0054613872bbba9d46af31a2e5b34cad60"
-  integrity sha512-G2BD/1FK85caE1/89z5YpDa8z/JuoXf2CbSwcQelWWilStI3HZ6872nLLUnhaDAbNS06ZUHeNcGvotaYXCoKnQ==
+vue-typed-virtual-list@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/vue-typed-virtual-list/-/vue-typed-virtual-list-1.0.9.tgz#62795508fa4098b710d4bb8e1c47442f2f9e0ee3"
+  integrity sha512-RluYzRIE1gUTqW0+ixU25FCldcsb5z6gWK7WsAYHEbToWVNgZ9ohneeVQmDKdvghqzOgrALYPXGBCCfCQe+5Zw==
   dependencies:
     "@vueuse/core" "^9.9.0"
     debounce "^1.2.1"
