@@ -95,7 +95,7 @@ export function createVirtualScroller<T>() {
           <div style={spacerStyles.value} />
 
           {
-            scroller.visibleItems.value.map((item) =>
+            scroller.visibleItems.value.map((item) => (
               <VirtualScrollerItem
                 key={item.index}
                 onSizeUpdated={(size: number) => scroller.measure(item.index, size)}
@@ -103,7 +103,8 @@ export function createVirtualScroller<T>() {
                 index={item.index}
               >
                 { slots.item?.(item) }
-              </VirtualScrollerItem>)
+              </VirtualScrollerItem>
+            ))
           }
         </div>
       );
