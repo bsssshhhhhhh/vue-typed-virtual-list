@@ -98,6 +98,13 @@ const someArrayOfUsers: User[] = Array
   - argument type: `{ start: number; end: number }`
 
 
+### Exposed Instance Methods
+
+-  `scrollTo(index: number): void` - scrolls an index into view
+
+
+
+
 ### Development
 
 ```
