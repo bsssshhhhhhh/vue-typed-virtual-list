@@ -13,7 +13,7 @@ export default defineConfig({
     },
 
     rollupOptions: {
-      external: ['vue', 'lodash', '@vueuse/core'],
+      external: ['vue', '@vueuse/core'],
       output: {
         globals: {
           vue: 'Vue'
