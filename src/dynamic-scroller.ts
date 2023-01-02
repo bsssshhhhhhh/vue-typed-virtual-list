@@ -2,7 +2,7 @@ import {
   computed, reactive, ref, Ref, isRef, watch, nextTick,
 } from 'vue';
 import { MaybeRef } from '@vueuse/core';
-import { debounce } from 'lodash';
+import debounce from 'debounce';
 import { ItemContext, ScrollerArray } from './types';
 import { binaryClosest } from './utils';
 

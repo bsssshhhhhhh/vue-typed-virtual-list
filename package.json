@@ -19,7 +19,7 @@
     "dev": "cypress open --component --browser chrome"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.191",
+    "@types/debounce": "^1.2.1",
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "@vitejs/plugin-vue": "^4.0.0",
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.9.0",
-    "lodash": "^4.17.21"
+    "debounce": "^1.2.1"
   },
   "type": "module",
   "module": "dist/vue-typed-virtual-list.js",
