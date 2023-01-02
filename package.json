@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "vue": "^3.2.45",
-    "vue-typed-virtual-list": "^1.0.7"
+    "vue-typed-virtual-list": "^1.0.8"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
