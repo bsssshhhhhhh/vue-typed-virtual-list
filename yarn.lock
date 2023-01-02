@@ -305,6 +305,11 @@ de-indent@^1.0.2:
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
   integrity sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==
 
+debounce@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.2.1.tgz#38881d8f4166a5c5848020c11827b834bcb3e0a5"
+  integrity sha512-XRRe6Glud4rd/ZGQfiV1ruXSfbvfJedlV9Y6zOlP+2K04vBYiJEte6stfFkCP03aMnY5tsipamumUjL14fofug==
+
 esbuild@^0.16.3:
   version "0.16.12"
   resolved "https://registry.yarnpkg.com/esbuild/-/esbuild-0.16.12.tgz#60850b9ad2f103f1c4316be42c34d5023f27378d"
@@ -366,11 +371,6 @@ is-core-module@^2.9.0:
   integrity sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==
   dependencies:
     has "^1.0.3"
-
-lodash@^4.17.21:
-  version "4.17.21"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
-  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 magic-string@^0.25.7:
   version "0.25.9"
@@ -489,13 +489,13 @@ vue-tsc@^1.0.11:
     "@volar/vue-language-core" "1.0.19"
     "@volar/vue-typescript" "1.0.19"
 
-vue-typed-virtual-list@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/vue-typed-virtual-list/-/vue-typed-virtual-list-1.0.6.tgz#5fe0b504b29e23111ea414b7b0e95c7cb8caf245"
-  integrity sha512-FWfwG+q/x970u4RvF/mreuZ1b9//eOOwLNe+SBj1hCWEjPmE2BPEVE3zDRaUpVbbrZwUTFkOI1HVc0VMlhT+hA==
+vue-typed-virtual-list@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/vue-typed-virtual-list/-/vue-typed-virtual-list-1.0.7.tgz#896e6fb4be1fad0bc118ec606fb76ee3438ca8ae"
+  integrity sha512-2TwwcY2CUCzS7PojIzlywR7KgiG8627AZBwMHdcdV0/+y95SxZUsST0AwAUleVcxbaFVkpDr6PydFklyg1wLlw==
   dependencies:
     "@vueuse/core" "^9.9.0"
-    lodash "^4.17.21"
+    debounce "^1.2.1"
 
 vue@^3.2.45:
   version "3.2.45"
