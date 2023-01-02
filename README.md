@@ -86,6 +86,8 @@ const someArrayOfUsers: User[] = Array
 </script>
 ```
 
+If you're not using TypeScript, just omit the type parameter from the above examples (`createVirtualScroller()`).
+
 ### Props
 
 - `defaultSize` - Placeholder size to use in calculations before an item's actual height has been measured
