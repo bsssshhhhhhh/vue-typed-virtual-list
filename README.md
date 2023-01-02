@@ -86,7 +86,14 @@ const someArrayOfUsers: User[] = Array
 </script>
 ```
 
-If you're not using TypeScript, just omit the type parameter from the above examples (`createVirtualScroller()`).
+#### JavaScript Usage
+
+If you're not using TypeScript in your project:
+
+```diff
+-const VirtualScroller = createVirtualScroller<User>();
++const VirtualScroller = createVirtualScroller();
+```
 
 ### Props
 
