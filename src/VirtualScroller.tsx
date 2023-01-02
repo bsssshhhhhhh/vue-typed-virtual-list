@@ -62,7 +62,7 @@ export function createVirtualScroller<T>() {
         height: `${scroller.totalSize.value}px`,
       }));
 
-      const scrollTo: ScrollTo = (index: number) => {
+      const scrollTo: ScrollTo = (index) => {
         const position = scroller.getOffset(index);
 
         if (position === undefined || !container.value) {
