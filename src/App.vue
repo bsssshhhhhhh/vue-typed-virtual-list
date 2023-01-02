@@ -10,8 +10,6 @@
         </div>
       </template>
     </VirtualList>
-
-
     <a href="https://github.com/bsssshhhhhhh/vue-typed-virtual-list/blob/gh-pages-src/src/App.vue">Source</a>
   </div>
 </template>
@@ -27,7 +25,18 @@ type User = {
   notes: string;
 }
 
-const lorem = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Integer vitae justo eget magna fermentum iaculis eu non.', 'Dolor purus non enim praesent elementum.', 'Cursus eget nunc scelerisque viverra mauris in.', 'Diam ut venenatis tellus in.', 'Et netus et malesuada fames ac.', 'Enim praesent elementum facilisis leo vel fringilla.', 'Adipiscing bibendum est ultricies integer quis auctor.', 'Interdum varius sit amet mattis vulputate enim nulla.', 'Purus sit amet luctus venenatis lectus magna fringilla urna porttitor..'];
+const lorem = [
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  'Integer vitae justo eget magna fermentum iaculis eu non.',
+  'Dolor purus non enim praesent elementum.',
+  'Cursus eget nunc scelerisque viverra mauris in.',
+  'Diam ut venenatis tellus in.',
+  'Et netus et malesuada fames ac.',
+  'Enim praesent elementum facilisis leo vel fringilla.',
+  'Adipiscing bibendum est ultricies integer quis auctor.',
+  'Interdum varius sit amet mattis vulputate enim nulla.',
+  'Purus sit amet luctus venenatis lectus magna fringilla urna porttitor.'
+];
 
 const names = [
   'Maksymilian Welch',
