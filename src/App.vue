@@ -69,6 +69,8 @@ const arr: User[] = Array
 
 
 type VirtualListInstance = InstanceType<typeof VirtualList>;
+
+// this is populated via `ref="scroller"` in the template
 const scroller = ref<VirtualListInstance | null>(null);
 const gotoIndex = ref(0);
 watch(gotoIndex, () => {
