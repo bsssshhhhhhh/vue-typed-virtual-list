@@ -111,3 +111,7 @@ const someArrayOfUsers: User[] = Array
 yarn
 yarn dev
 ```
+
+### Contributing
+
+PRs welcome
