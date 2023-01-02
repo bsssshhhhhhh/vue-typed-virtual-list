@@ -11,6 +11,6 @@ export function useScrollDirection(scrollPosition: Ref<number>) {
   });
 
   return {
-    scrollDirection
+    scrollDirection,
   };
 }

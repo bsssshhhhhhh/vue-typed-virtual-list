@@ -1,8 +1,10 @@
-import { computed, reactive, ref, Ref, isRef, watch, nextTick } from 'vue';
+import {
+  computed, reactive, ref, Ref, isRef, watch, nextTick,
+} from 'vue';
 import { MaybeRef } from '@vueuse/core';
+import { debounce } from 'lodash';
 import { ItemContext, ScrollerArray } from './types';
 import { binaryClosest } from './utils';
-import { debounce } from 'lodash';
 
 type DyanmicSizeScrollerArgs<T> = {
   items: MaybeRef<ScrollerArray<T>>;
@@ -13,11 +15,11 @@ type DyanmicSizeScrollerArgs<T> = {
 
   onItemsChanged?: (arg: { start: number, end: number }) => void;
   onTotalSizeChanged?: (delta: number) => void;
-}
+};
 
 const OFFSET_DEBOUNCE_INTERVAL = 1;
 
-const resolveMaybeRef = <T>(ref: MaybeRef<T>) => (isRef(ref) ? ref.value : ref);
+const resolveMaybeRef = <T>(maybeRef: MaybeRef<T>) => (isRef(maybeRef) ? maybeRef.value : maybeRef);
 
 export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
   const getItems = () => resolveMaybeRef(args.items);
@@ -34,7 +36,7 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
   const updateOffsets = debounce(() => {
     const items = getItems();
     const sums: Record<number | 'length', number> = {
-      length: items.length
+      length: items.length,
     };
 
     sums[0] = 0;
@@ -49,7 +51,6 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
 
   updateOffsets();
   updateOffsets.flush();
-
 
   let lastStart = 0;
   let lastEnd = 0;
@@ -79,7 +80,7 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
       .map((item, index): ItemContext<T> => ({
         index: index + start,
         ref: item,
-        offset: offsets.value[index + start] ?? 0
+        offset: offsets.value[index + start] ?? 0,
       }));
   });
 
@@ -101,6 +102,6 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
     getOffset,
     measure,
     visibleItems,
-    totalSize
+    totalSize,
   };
 }

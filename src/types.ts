@@ -3,4 +3,4 @@ export type ItemContext<T> = {
   index: number;
   offset: number;
   ref: T | undefined;
-}
+};

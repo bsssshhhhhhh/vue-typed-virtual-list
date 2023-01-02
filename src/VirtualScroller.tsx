@@ -1,11 +1,11 @@
-import { useDynamicSizeScroller } from './dynamic-scroller';
-import { defineComponent, ref, PropType, VNode, toRefs, computed, CSSProperties } from 'vue';
-import { ItemContext } from './types';
+import {
+  defineComponent, ref, PropType, VNode, toRefs, computed, CSSProperties,
+} from 'vue';
 import { useElementSize } from '@vueuse/core';
+import { useDynamicSizeScroller } from './dynamic-scroller';
+import { ItemContext } from './types';
 import { useScrollDirection } from './scroll-direction';
 import { VirtualScrollerItem } from './VirtualScrollerItem';
-
-
 
 export function createVirtualScroller<T>() {
   const VirtualScroller = defineComponent({
@@ -17,13 +17,13 @@ export function createVirtualScroller<T>() {
 
       defaultSize: {
         type: Number,
-        required: true
+        required: true,
       },
 
       padding: {
         type: Number,
-        default: 10
-      }
+        default: 10,
+      },
     },
 
     emits: ['visibleItemsChanged'],
@@ -52,7 +52,7 @@ export function createVirtualScroller<T>() {
             return;
           }
           container.value.scrollTop += delta;
-        }
+        },
       });
 
       const spacerStyles = computed((): CSSProperties => ({
@@ -68,27 +68,25 @@ export function createVirtualScroller<T>() {
           style={{
             height: '100%',
             overflowY: 'auto',
-            position: 'relative'
+            position: 'relative',
           }}
         >
 
           <div style={spacerStyles.value} />
 
           {
-            scroller.visibleItems.value.map((item) =>
-              <VirtualScrollerItem
+            scroller.visibleItems.value.map((item) => <VirtualScrollerItem
                 key={item.index}
-                onSizeUpdated={(height: number) => scroller.measure(item.index, height)}
+                onSizeUpdated={(size: number) => scroller.measure(item.index, size)}
                 offset={item.offset}
                 index={item.index}
               >
                 { slots.item?.(item) }
-              </VirtualScrollerItem>
-            )
+              </VirtualScrollerItem>)
           }
         </div>
       );
-    }
+    },
   });
 
   return VirtualScroller as typeof VirtualScroller & {
