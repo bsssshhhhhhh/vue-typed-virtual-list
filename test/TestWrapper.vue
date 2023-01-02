@@ -1,10 +1,10 @@
-
 <template>
   <div style="height: 800px">
     <VirtualList
+      ref="scroller"
       :default-size="84"
       :items="arr">
-      <template #item="{ index, offset, ref }">
+      <template #item="{ index, ref }">
         <ExpandableThing>
           Item # {{ ref?.id }}
           <hr v-if="index % 3 === 0">
@@ -13,12 +13,18 @@
       </template>
     </VirtualList>
   </div>
+  <div>
+    <input :value="gotoIndex" @input="onPositionInput" />
+  </div>
 </template>
 
 <script lang="ts">
 import { createVirtualScroller } from '../src/VirtualScroller';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import ExpandableThing from './ExpandableThing.vue';
+
+const VirtualList = createVirtualScroller<TestItem>()
+type VirtualListInstance = InstanceType<typeof VirtualList>;
 
 type TestItem = {
   id: number;
@@ -27,7 +33,7 @@ type TestItem = {
 export default defineComponent({
   components: {
     ExpandableThing,
-    VirtualList: createVirtualScroller<TestItem>()
+    VirtualList,
   },
   setup() {
     const arr: TestItem[] = Array
@@ -36,8 +42,21 @@ export default defineComponent({
         id: i + 1
       }));
 
+    const scroller = ref<VirtualListInstance | null>(null);
+    const gotoIndex = ref(0);
+
+    const onPositionInput = (e: Event) => {
+      const value = Number((e.target as HTMLInputElement).value);
+      if (!Number.isNaN(value)) {
+        scroller.value?.scrollTo(value);
+      }
+    };
+
     return {
-      arr
+      arr,
+      scroller,
+      gotoIndex,
+      onPositionInput,
     }
   }
 });

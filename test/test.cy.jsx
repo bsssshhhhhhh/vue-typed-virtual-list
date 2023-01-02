@@ -4,7 +4,7 @@ import WithScriptSetup from './WithScriptSetup.vue';
 
 const mountComponents = () => {
   cy.viewport('macbook-16');
-  cy.mount(WithScriptSetup);
+  cy.mount(TestWrapper);
 };
 
 beforeEach(() => {

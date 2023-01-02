@@ -7,6 +7,8 @@ import { ItemContext } from './types';
 import { useScrollDirection } from './scroll-direction';
 import { VirtualScrollerItem } from './VirtualScrollerItem';
 
+type ScrollTo = (index: number) => void;
+
 export function createVirtualScroller<T>() {
   const VirtualScroller = defineComponent({
     props: {
@@ -28,7 +30,7 @@ export function createVirtualScroller<T>() {
 
     emits: ['visibleItemsChanged'],
 
-    setup(propsObject, { emit, slots }) {
+    setup(propsObject, { emit, slots, expose }) {
       const props = toRefs(propsObject);
 
       const container = ref<HTMLDivElement | null>(null);
@@ -59,6 +61,20 @@ export function createVirtualScroller<T>() {
         width: '1px',
         height: `${scroller.totalSize.value}px`,
       }));
+
+      const scrollTo: ScrollTo = (index: number) => {
+        const position = scroller.getOffset(index);
+
+        if (position === undefined || !container.value) {
+          return;
+        }
+
+        container.value.scrollTop = position;
+      };
+
+      expose({
+        scrollTo,
+      });
 
       return () => (
         <div
@@ -93,7 +109,8 @@ export function createVirtualScroller<T>() {
     new(): {
       $slots: {
         item: (ctx: ItemContext<T>) => VNode[]
-      }
+      },
+      scrollTo: ScrollTo
     }
   };
 }
