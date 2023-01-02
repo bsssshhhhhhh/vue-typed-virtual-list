@@ -4,13 +4,14 @@
 
 A fast, type-safe virtual list component for Vue 3.
 
+[Live Demo](https://bsssshhhhhhh.github.io/vue-typed-virtual-list/) **&middot;** [Try it on CodeSandbox](https://codesandbox.io/s/vue-typed-virtual-list-w26j1l?file=/src/App.vue)
+
 Features:
 - Extremely efficient calculations
 - Provides generic type safety inside the `#item` slot
 - Automatically and transparently deals with variable element heights
 - Small footprint. <2KB gzipped
 
-[Live Demo](https://bsssshhhhhhh.github.io/vue-typed-virtual-list/) **&middot;** [Try it on CodeSandbox](https://codesandbox.io/s/vue-typed-virtual-list-w26j1l?file=/src/App.vue)
 
 
 ## Usage
