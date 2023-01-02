@@ -13,6 +13,10 @@ export function binaryClosest(arr: Record<number | 'length', number>, num: numbe
   while (low <= high) {
     mid = (low + high) >> 1;
     item = arr[mid]!;
+    if (item === num) {
+      return mid;
+    }
+
     if (item > num) {
       high = mid - 1;
     } else if (item < num) {

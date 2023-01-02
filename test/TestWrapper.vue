@@ -14,13 +14,15 @@
     </VirtualList>
   </div>
   <div>
-    <input :value="gotoIndex" @input="onPositionInput" />
+    <input
+      type="number"
+      v-model="gotoIndex" />
   </div>
 </template>
 
 <script lang="ts">
 import { createVirtualScroller } from '../src/VirtualScroller';
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import ExpandableThing from './ExpandableThing.vue';
 
 const VirtualList = createVirtualScroller<TestItem>()
@@ -45,18 +47,14 @@ export default defineComponent({
     const scroller = ref<VirtualListInstance | null>(null);
     const gotoIndex = ref(0);
 
-    const onPositionInput = (e: Event) => {
-      const value = Number((e.target as HTMLInputElement).value);
-      if (!Number.isNaN(value)) {
-        scroller.value?.scrollTo(value);
-      }
-    };
+    watch(gotoIndex, () => {
+      scroller.value?.scrollTo(gotoIndex.value);
+    });
 
     return {
       arr,
       scroller,
       gotoIndex,
-      onPositionInput,
     }
   }
 });
