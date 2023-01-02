@@ -1,7 +1,10 @@
 
 <template>
   <div class="list-wrapper">
-    <VirtualList :default-size="196" :items="arr">
+    <VirtualList
+      ref="scroller"
+      :default-size="196"
+      :items="arr">
       <template #item="{ index, offset, ref }">
         <div class="list-item">
           <div><strong>User ID:</strong> {{ ref?.id }}</div>
@@ -10,11 +13,15 @@
         </div>
       </template>
     </VirtualList>
+    <div>
+      Go To Index: <input type="number" v-model="gotoIndex" />
+    </div>
     <a href="https://github.com/bsssshhhhhhh/vue-typed-virtual-list/blob/gh-pages-src/src/App.vue">Source</a>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref, watch } from 'vue';
 import { createVirtualScroller } from 'vue-typed-virtual-list';
 
 const VirtualList = createVirtualScroller<User>();
@@ -59,6 +66,14 @@ const arr: User[] = Array
     name: names[i % names.length],
     notes: lorem.slice(0, Math.ceil(Math.random() * lorem.length)).join('\n')
   }));
+
+
+type VirtualListInstance = InstanceType<typeof VirtualList>;
+const scroller = ref<VirtualListInstance | null>(null);
+const gotoIndex = ref(0);
+watch(gotoIndex, () => {
+  scroller.value?.scrollTo(gotoIndex.value);
+})
 
 </script>
 
