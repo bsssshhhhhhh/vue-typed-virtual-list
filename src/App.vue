@@ -62,7 +62,7 @@ const names = [
 const arr: User[] = Array
   .from(Array(70000))
   .map((_, i) => ({
-    id: i + 1,
+    id: i,
     name: names[i % names.length],
     notes: lorem.slice(0, Math.ceil(Math.random() * lorem.length)).join('\n')
   }));
