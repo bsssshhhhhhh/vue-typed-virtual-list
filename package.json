@@ -1,6 +1,6 @@
 {
   "name": "vue-typed-virtual-list",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A small, efficient, easy-to-use virtual list for Vue 3",
   "author": {
     "name": "Brian Simon",
