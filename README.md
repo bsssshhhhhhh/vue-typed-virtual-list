@@ -1,6 +1,6 @@
 # vue-typed-virtual-list
 
-[![npm](https://img.shields.io/npm/v/vue-typed-virtual-list.svg)](https://npmjs.com/package/vue-typed-virtual-list) ![size](https://img.shields.io/bundlephobia/minzip/vue-typed-virtual-list?label=size) [![vue3](https://img.shields.io/badge/vue-3.x-blue.svg)](https://vuejs.org/) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)
+[![npm](https://img.shields.io/npm/v/vue-typed-virtual-list.svg)](https://npmjs.com/package/vue-typed-virtual-list) [![size](https://img.shields.io/bundlephobia/minzip/vue-typed-virtual-list?label=size)](https://bundlephobia.com/package/vue-typed-virtual-list) [![vue3](https://img.shields.io/badge/vue-3.x-blue.svg)](https://vuejs.org/) ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)
 
 A fast, type-safe virtual list component for Vue 3.
 
@@ -10,7 +10,7 @@ Features:
 - Extremely efficient calculations
 - Provides generic type safety inside the `#item` slot
 - Automatically and transparently deals with variable element heights
-- Small footprint. <2KB gzipped
+- Small footprint. <10KB gzipped
 
 
 
