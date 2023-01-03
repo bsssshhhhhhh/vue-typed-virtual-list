@@ -17,6 +17,11 @@ type DyanmicSizeScrollerArgs<T> = {
   onTotalSizeChanged?: (delta: number) => void;
 };
 
+type ArrayLike<T> = {
+  length: number;
+  [index: number]: T
+};
+
 const OFFSET_DEBOUNCE_INTERVAL = 1;
 
 const resolveMaybeRef = <T>(maybeRef: MaybeRef<T>) => (isRef(maybeRef) ? maybeRef.value : maybeRef);
@@ -32,10 +37,10 @@ export function useDynamicSizeScroller<T>(args: DyanmicSizeScrollerArgs<T>) {
     updateOffsets();
   };
 
-  const offsets = ref<Record<number | 'length', number>>({ length: 0 });
+  const offsets = ref<ArrayLike<number>>({ length: 0 });
   const updateOffsets = debounce(() => {
     const items = getItems();
-    const sums: Record<number | 'length', number> = {
+    const sums: ArrayLike<number> = {
       length: items.length,
     };
 
