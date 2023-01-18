@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/vue-typed-virtual-list.svg)](https://npmjs.com/package/vue-typed-virtual-list) [![size](https://img.shields.io/bundlephobia/minzip/vue-typed-virtual-list?label=size)](https://bundlephobia.com/package/vue-typed-virtual-list) [![vue3](https://img.shields.io/badge/vue-3.x-blue.svg)](https://vuejs.org/) [![Typescript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-A fast, type-safe virtual list component for Vue 3.
+A fast, type-safe virtual list component for rendering massive data. Works with Vue 3
 
 [Live Demo](https://bsssshhhhhhh.github.io/vue-typed-virtual-list/) **&middot;** [Try it on CodeSandbox](https://codesandbox.io/s/vue-typed-virtual-list-w26j1l?file=/src/App.vue)
 
